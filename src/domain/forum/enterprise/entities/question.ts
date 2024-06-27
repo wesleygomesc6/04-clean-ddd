@@ -4,14 +4,14 @@ import { Entity } from '@/core/entities/entity'
 import { Optional } from '@/core/types/optional'
 import dayjs from 'dayjs'
 
-interface QuestionProps {
+export interface QuestionProps {
   authorId: UniqueEnityId
   bestAnswerId?: UniqueEnityId
   title: string
   content: string
   slug: Slug
   createdAt: Date
-  updatedAt: Date
+  updatedAt?: Date
 }
 
 export class Question extends Entity<QuestionProps> {

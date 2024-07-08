@@ -1,7 +1,7 @@
 import { FetchAnswerCommentsUseCase } from './fetch-answer-comments'
 import { InMemoryAnswerCommentsRepository } from 'test/repositories/in-memory-answer-comments-repository'
 import { makeAnswerComment } from 'test/factories/make-answer-comment'
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 let inMemoryAnswersCommentsRepository: InMemoryAnswerCommentsRepository
 let sut: FetchAnswerCommentsUseCase
@@ -15,17 +15,17 @@ describe('Fetch Answers Comments', () => {
   it('should be albe to fetch recents answer comments', async () => {
     await inMemoryAnswersCommentsRepository.create(
       makeAnswerComment({
-        answerId: new UniqueEnityId('answer-1'),
+        answerId: new UniqueEntityId('answer-1'),
       }),
     )
     await inMemoryAnswersCommentsRepository.create(
       makeAnswerComment({
-        answerId: new UniqueEnityId('answer-1'),
+        answerId: new UniqueEntityId('answer-1'),
       }),
     )
     await inMemoryAnswersCommentsRepository.create(
       makeAnswerComment({
-        answerId: new UniqueEnityId('answer-1'),
+        answerId: new UniqueEntityId('answer-1'),
       }),
     )
 
@@ -41,7 +41,7 @@ describe('Fetch Answers Comments', () => {
     for (let index = 1; index <= 22; index++) {
       await inMemoryAnswersCommentsRepository.create(
         makeAnswerComment({
-          answerId: new UniqueEnityId('answer-1'),
+          answerId: new UniqueEntityId('answer-1'),
         }),
       )
     }

@@ -1,7 +1,7 @@
 import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository'
 import { FetchQuestionAnswersUseCase } from './fetch-question-answers'
 import { makeAnswer } from 'test/factories/makeAnswer'
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { InMemoryAnswerAttachmentsRepository } from 'test/repositories/in-memory-answer-attachments-repository'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
@@ -21,17 +21,17 @@ describe('Fetch Question Answers', () => {
   it('should be albe to fetch questions answers', async () => {
     await inMemoryAnswersRepository.create(
       makeAnswer({
-        questionId: new UniqueEnityId('question-1'),
+        questionId: new UniqueEntityId('question-1'),
       }),
     )
     await inMemoryAnswersRepository.create(
       makeAnswer({
-        questionId: new UniqueEnityId('question-1'),
+        questionId: new UniqueEntityId('question-1'),
       }),
     )
     await inMemoryAnswersRepository.create(
       makeAnswer({
-        questionId: new UniqueEnityId('question-1'),
+        questionId: new UniqueEntityId('question-1'),
       }),
     )
 
@@ -47,7 +47,7 @@ describe('Fetch Question Answers', () => {
     for (let index = 1; index <= 22; index++) {
       await inMemoryAnswersRepository.create(
         makeAnswer({
-          questionId: new UniqueEnityId('question-paginated'),
+          questionId: new UniqueEntityId('question-paginated'),
         }),
       )
     }

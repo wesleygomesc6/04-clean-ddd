@@ -1,4 +1,4 @@
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Either, right } from '@/core/either'
 import { Notification } from '../../enterprise/entities/notificacao'
 import { NotificationsRepository } from '../repositories/notifications-repository'
@@ -25,7 +25,7 @@ export class SendNotificationUseCase {
     content,
   }: SendNotificationUseCaseRequest): Promise<SendNotificationUseCaseResponse> {
     const notification = Notification.create({
-      recipientId: new UniqueEnityId(recipientId),
+      recipientId: new UniqueEntityId(recipientId),
       title,
       content,
     })

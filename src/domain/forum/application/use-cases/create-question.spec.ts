@@ -1,4 +1,4 @@
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { CreateQuestionUseCase } from './create-question'
 import { InMemoryQuestionRepository } from 'test/repositories/in-memory-questions-repository'
 import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memory-question-attachments-repository'
@@ -34,10 +34,10 @@ describe('Create Question', () => {
       inMemoryQuestionsRepository.items[0].attachments.currentItems,
     ).toEqual([
       expect.objectContaining({
-        attachmentId: new UniqueEnityId('1'),
+        attachmentId: new UniqueEntityId('1'),
       }),
       expect.objectContaining({
-        attachmentId: new UniqueEnityId('2'),
+        attachmentId: new UniqueEntityId('2'),
       }),
     ])
   })

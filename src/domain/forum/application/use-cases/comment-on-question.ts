@@ -1,9 +1,9 @@
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { QuestionsRepository } from '../repositories/questions-repository'
 import { QuestionComment } from '../../enterprise/entities/question-comment'
 import { QuestionCommentsRepository } from '../repositories/question-comments-repository'
 import { Either, left, right } from '@/core/either'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 
 interface CommentOnQuestionUseCaseRequest {
   authorId: string
@@ -34,8 +34,8 @@ export class CommentOnQuestionUseCase {
     if (!question) return left(new ResourceNotFoundError())
 
     const questionComment = QuestionComment.create({
-      authorId: new UniqueEnityId(authorId),
-      questionId: new UniqueEnityId(questionId),
+      authorId: new UniqueEntityId(authorId),
+      questionId: new UniqueEntityId(questionId),
       content,
     })
 

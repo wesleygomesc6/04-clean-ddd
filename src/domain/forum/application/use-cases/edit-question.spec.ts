@@ -1,8 +1,8 @@
 import { InMemoryQuestionRepository } from 'test/repositories/in-memory-questions-repository'
 import { makeQuestion } from 'test/factories/make-question'
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { EditQuestionUseCase } from './edit-questions'
-import { NotAllowedError } from './errors/not-allowed-error'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memory-question-attachments-repository'
 import { makeQuestionAttachment } from 'test/factories/make-question-attachments'
 
@@ -26,9 +26,9 @@ describe('Edit Question', () => {
   it('should be albe to edit a question', async () => {
     const newQuestion = makeQuestion(
       {
-        authorId: new UniqueEnityId('author-1'),
+        authorId: new UniqueEntityId('author-1'),
       },
-      new UniqueEnityId('question-1'),
+      new UniqueEntityId('question-1'),
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)
@@ -36,11 +36,11 @@ describe('Edit Question', () => {
     inMemoryQuestionAttachmentsRepository.items.push(
       makeQuestionAttachment({
         questionId: newQuestion.id,
-        attachmentId: new UniqueEnityId('1'),
+        attachmentId: new UniqueEntityId('1'),
       }),
       makeQuestionAttachment({
         questionId: newQuestion.id,
-        attachmentId: new UniqueEnityId('2'),
+        attachmentId: new UniqueEntityId('2'),
       }),
     )
 
@@ -63,10 +63,10 @@ describe('Edit Question', () => {
       inMemoryQuestionsRepository.items[0].attachments.currentItems,
     ).toEqual([
       expect.objectContaining({
-        attachmentId: new UniqueEnityId('1'),
+        attachmentId: new UniqueEntityId('1'),
       }),
       expect.objectContaining({
-        attachmentId: new UniqueEnityId('3'),
+        attachmentId: new UniqueEntityId('3'),
       }),
     ])
   })
@@ -74,9 +74,9 @@ describe('Edit Question', () => {
   it('should not be albe to edit a question from another user', async () => {
     const newQuestion = makeQuestion(
       {
-        authorId: new UniqueEnityId('author-1'),
+        authorId: new UniqueEntityId('author-1'),
       },
-      new UniqueEnityId('question-1'),
+      new UniqueEntityId('question-1'),
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)

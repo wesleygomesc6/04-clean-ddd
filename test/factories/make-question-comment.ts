@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { UniqueEnityId } from '@/core/entities/unique-entity-id'
+import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import {
   QuestionComment,
   QuestionCommentProps,
@@ -7,12 +7,12 @@ import {
 
 export function makeQuestionComment(
   override: Partial<QuestionCommentProps> = {},
-  id?: UniqueEnityId,
+  id?: UniqueEntityId,
 ) {
   const questionComment = QuestionComment.create(
     {
-      authorId: new UniqueEnityId(),
-      questionId: new UniqueEnityId(),
+      authorId: new UniqueEntityId(),
+      questionId: new UniqueEntityId(),
       content: faker.lorem.text(),
       ...override,
     },

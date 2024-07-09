@@ -7,7 +7,8 @@
         "camelcase": "off",
         "no-useless-constructor": "off",
         "no-unused-vars": "off",
-        "@typescript-eslint/no-explicit-any":"off"
+        "@typescript-eslint/no-explicit-any":"off",
+        "no-new":"off"
     },
     "env": {
         "vitest-globals/env": true
